@@ -6,8 +6,9 @@ import CustomDialog from "../../Shared/CustomDialog";
 const CustomTextField = ({
   token,
   isDisabled,
-  textFieldValue,
-  selectedToken
+  ontextFieldChange,
+  selectedToken,
+  tokenAmount
 }: any) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedValue, setSelectedValue] = useState(token);
@@ -28,7 +29,14 @@ const CustomTextField = ({
             fullWidth
             disabled={isDisabled}
             InputProps={{ style: { color: "#fff" }, disableUnderline: true }}
-            sx={{ border: "none" }}
+            sx={{
+              border: "none",
+              "& .MuiInputBase-input.Mui-disabled": {
+                WebkitTextFillColor: "#fff"
+              }
+            }}
+            onChange={ontextFieldChange}
+            value={tokenAmount}
           />
           <Button
             variant="outlined"

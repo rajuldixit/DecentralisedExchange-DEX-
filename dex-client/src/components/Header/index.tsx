@@ -4,12 +4,14 @@ import { useNavigate } from "react-router";
 import logo from "../../assets/icons/logo.svg";
 import ethereum from "../../assets/icons/ethereum.svg";
 import "./style.css";
+import { useEffect } from "react";
 
 const Header = ({ isDark, handleChange }: any) => {
   const navigate = useNavigate();
   const changeRoute = (route: string) => {
     navigate(route);
   };
+
   return (
     <>
       <Paper elevation={0} className="header-container">

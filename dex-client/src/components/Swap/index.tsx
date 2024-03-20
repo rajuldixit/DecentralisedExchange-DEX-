@@ -5,6 +5,7 @@ import CustomTextField from "./CustomTextField";
 import { useEffect, useState } from "react";
 import "./style.css";
 import tokenList from "../../tokenList.json";
+import { fetchPrices } from "../../lib/dataApis";
 
 interface IToken {
   symbol: string;
@@ -13,11 +14,24 @@ interface IToken {
   address: string;
   decimals: number;
 }
+const defaultPrices = {
+  ratio: 0,
+  tokenOne: 0,
+  tokenTwo: 0
+};
 const Swap = () => {
-  const [tokenOne, setTokenOne] = useState<IToken>();
-  const [tokenTwo, setTokenTwo] = useState<IToken>();
+  const [tokenOne, setTokenOne] = useState<IToken>(tokenList[0]);
+  const [tokenTwo, setTokenTwo] = useState<IToken>(tokenList[1]);
+  const [tokenOneAmount, setTokenOneAmount] = useState(null);
+  const [tokenTwoAmount, setTokenTwoAmount] = useState<string | null>(null);
+  const [prices, setPrices] = useState<{
+    ratio: number;
+    tokenOne: number;
+    tokenTwo: number;
+  }>(defaultPrices);
 
   const onTokenUpdate = (token: IToken, tokenCount: number) => {
+    resetFields();
     if (tokenCount === 1) {
       setTokenOne(token);
     } else {
@@ -25,15 +39,35 @@ const Swap = () => {
     }
   };
   const onSwapTokens = () => {
+    resetFields();
     const one = tokenOne;
     const two = tokenTwo;
     setTokenOne(two);
     setTokenTwo(one);
   };
+  const ontextFieldChange = (e: any) => {
+    setTokenOneAmount(e.target.value);
+    if (e.target.value && prices) {
+      setTokenTwoAmount((e.target.value * prices?.ratio).toFixed(2));
+    } else {
+      setTokenTwoAmount(null);
+    }
+  };
+  const onFetchPrices = async () => {
+    if (tokenOne && tokenTwo) {
+      const prices = await fetchPrices(tokenOne?.address, tokenTwo?.address);
+      setPrices(prices);
+    }
+  };
+  const resetFields = () => {
+    setTokenOneAmount(null);
+    setTokenTwoAmount(null);
+    setPrices(defaultPrices);
+  };
   useEffect(() => {
-    setTokenOne(tokenList[0]);
-    setTokenTwo(tokenList[1]);
-  }, [tokenList]);
+    onFetchPrices();
+  }, []);
+
   return (
     <Container
       maxWidth={"sm"}
@@ -55,6 +89,8 @@ const Swap = () => {
         </Typography>
         <CustomTextField
           token={tokenOne}
+          tokenAmount={tokenOneAmount}
+          ontextFieldChange={ontextFieldChange}
           selectedToken={(token: IToken) => onTokenUpdate(token, 1)}
         />
         <div className="swap-icon-wrap">
@@ -63,6 +99,7 @@ const Swap = () => {
         <CustomTextField
           isDisabled={true}
           token={tokenTwo}
+          tokenAmount={tokenTwoAmount}
           selectedToken={(token: IToken) => onTokenUpdate(token, 2)}
         />
 
