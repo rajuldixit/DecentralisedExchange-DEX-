@@ -15,6 +15,7 @@
   --toggle-fg: #ffd000;
   --header-bg: #e6e6e8;
   --header-bottom-border: #cacaca;
+  --token-card-bg: #bed6e0;
 }
 
 [data-theme="dark"] {
@@ -26,4 +27,18 @@
   --toggle-fg: #00a6ff;
   --header-bg: #0e111b;
   --header-bottom-border: #21273a;
+  --token-card-bg: #242424;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
