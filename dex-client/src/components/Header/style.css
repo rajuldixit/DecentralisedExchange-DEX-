@@ -6,7 +6,26 @@
   border: 0;
   border-bottom: 2px solid var(--header-bottom-border);
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .nav-item {
   color: var(--primary-text-color);
+}
+.connect-button {
+  margin-left: 24px !important;
+  background-color: #243056 !important;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 100px;
+  color: #5981f3 !important;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.connect-button:hover {
+  cursor: pointer;
+  color: #3b4874 !important;
 }
