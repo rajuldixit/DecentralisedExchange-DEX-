@@ -1,0 +1,57 @@
+.swap-box {
+  background-color: var(--token-card-bg) !important;
+  padding: 8px;
+  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
+    0 0 0 1px hsla(0, 0%, 0%, 0.05), 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+    0 0.9px 1.5px hsla(0, 0%, 0%, 0.045), 0 3.5px 6px hsla(0, 0%, 0%, 0.09) !important;
+  border-radius: 8px !important;
+  width: 100%;
+  padding: 2em;
+  position: relative;
+}
+.text-style {
+  color: var(--primary-text-color);
+}
+.text-field-wrap {
+  background: #243056;
+  border-radius: 8px;
+  margin: 8px 0 0 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row !important;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.swap-icon-wrap {
+  background: #7380a8;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  right: 46%;
+  top: 44%;
+  cursor: pointer;
+}
+
+.swap-button {
+  margin-top: 8px !important;
+  background-color: #243056 !important;
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 100px;
+  color: #5981f3 !important;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 8px !important;
+}
+
+.swap-button:hover {
+  cursor: pointer;
+  color: #3b4874 !important;
+}

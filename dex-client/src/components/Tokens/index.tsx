@@ -7,14 +7,30 @@ const Card = ({ token }: any) => {
   return (
     <>
       <Paper className="token-wrap">
-        <img src={token.img} alt="token-img" style={{ width: "24px" }} />
-        <Typography className="text-color text-width-wrap" textAlign={"left"}>
+        <img
+          src={token.img}
+          alt="token-img"
+          style={{ width: "24px", height: "24px" }}
+        />
+        <Typography
+          className="text-color text-width-wrap"
+          textAlign={"left"}
+          variant="body1"
+        >
           {token.name}
         </Typography>
-        <Typography className="text-color text-width-wrap" textAlign={"left"}>
+        <Typography
+          className="text-color text-width-wrap"
+          textAlign={"left"}
+          variant="body1"
+        >
           {token.symbol}
         </Typography>
-        <Typography className="text-color text-width-wrap" textAlign={"right"}>
+        <Typography
+          className="text-color text-width-wrap"
+          textAlign={"right"}
+          variant="body1"
+        >
           {token.address.slice(0, 4) + "..." + token.address.slice(38)}
         </Typography>
       </Paper>

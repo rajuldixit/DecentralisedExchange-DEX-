@@ -1,11 +1,11 @@
 import React, { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Route, Routes } from "react-router-dom";
-import Swap from "./components/Swap";
 import Tokens from "./components/Tokens";
 import AppLayout from "./pages/AppLayout";
 import ErrorIllustration from "./components/ErrorIllustration";
 import Loader from "./components/Loader";
+import Swap from "./components/Swap";
 
 const AppRoutes = () => {
   return (
