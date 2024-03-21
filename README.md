@@ -1,5 +1,33 @@
 # DecentralisedExchange (DEX)
 
+### This is a DecentralisedExchange, where user can view available tokens, also can check the conversion of different tokens. User can connect their MetaMask wallet, can check balance and wallet address.
+
+## Folder structure
+#### dex-client(React js)
+#### dex-server(node js)
+
+### Tech stack
+#### 1. React js
+#### 2. Node js (express js)
+#### 3. Material UI (style)
+
+## Dependencies
+#### 1. axios 
+#### 2. MetaMask
+#### 3. ethers
+
+## Steps to run
+#### 1. git clone 
+#### 2. cd DecentralisedExchange-DEX-
+### To run node server
+#### 3. cd dex-server
+#### 4. npm install
+#### 5. nodemon
+### To run react client
+#### cd dex-client
+#### npm install
+#### npm start
+
 ## Screenshots
 
 ![image](https://github.com/rajuldixit/DecentralisedExchange-DEX-/assets/17043105/c727331e-e567-4a3f-8a8e-2a917e76b7c6)
