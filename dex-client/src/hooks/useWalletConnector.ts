@@ -1,14 +1,5 @@
-import { http, createConfig } from "wagmi";
-import { base, mainnet, optimism } from "wagmi/chains";
-import { injected, metaMask, safe, walletConnect } from "wagmi/connectors";
+import { InjectedConnector } from "@web3-react/injected-connector";
 
-const projectId = "<WALLETCONNECT_PROJECT_ID>";
-
-// export const config = createConfig({
-//   chains: [mainnet, base],
-//   connectors: [injected(), walletConnect({ projectId }), metaMask(), safe()],
-//   transports: {
-//     [mainnet.id]: http(),
-//     [base.id]: http()
-//   }
-// });
+export const injected = new InjectedConnector({
+  supportedChainIds: [1, 3, 4, 5, 42]
+});
