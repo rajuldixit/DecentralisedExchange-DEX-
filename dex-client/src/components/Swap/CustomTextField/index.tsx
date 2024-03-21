@@ -1,6 +1,7 @@
 import { Button, Stack, TextField } from "@mui/material";
 import "../style.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomDialog from "../../Shared/CustomDialog";
 
 const CustomTextField = ({
@@ -40,7 +41,7 @@ const CustomTextField = ({
           />
           <Button
             variant="outlined"
-            sx={{ borderRadius: "18px", width: "100px" }}
+            sx={{ borderRadius: "18px", width: "140px" }}
             startIcon={
               <img
                 src={token.img}
@@ -48,6 +49,7 @@ const CustomTextField = ({
                 style={{ width: "16px", height: "16px" }}
               />
             }
+            endIcon={<KeyboardArrowDownIcon />}
             onClick={() => setOpenDialog(!openDialog)}
           >
             {token.symbol}

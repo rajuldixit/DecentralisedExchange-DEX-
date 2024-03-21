@@ -40,3 +40,10 @@
 .toggle:checked + label::after {
   transform: translateX(100%);
 }
+
+@media screen and (max-width: 500px) {
+  .toggle-container {
+    top: 0.2em;
+    left: 1em;
+  }
+}

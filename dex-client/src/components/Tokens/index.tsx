@@ -48,10 +48,18 @@ const Tokens = () => {
         overflowY: "scroll"
       }}
     >
-      <Typography className="text-color" variant="h5">
+      <Typography
+        className="text-color"
+        sx={{
+          textAlign: { xs: "center", sm: "left" },
+          marginBottom: { xs: "16px", sm: "8px" }
+        }}
+        variant="h5"
+      >
         Tokens
       </Typography>
       <Grid
+        sx={{ padding: { xs: "8px" } }}
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}

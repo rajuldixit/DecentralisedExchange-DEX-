@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
 }
 .nav-item {
   color: var(--primary-text-color);
@@ -25,7 +26,21 @@
   transition: 0.3s;
 }
 
+@media screen and (max-width: 500px) {
+  .connect-button {
+    margin-left: 0 !important;
+  }
+  .drawer-style {
+    background: var(--header-bg) !important;
+    cursor: pointer;
+  }
+}
+
 .connect-button:hover {
   cursor: pointer;
   color: #3b4874 !important;
+}
+
+.menu-icon {
+  color: var(--primary-text-color);
 }
