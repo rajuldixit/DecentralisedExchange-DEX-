@@ -4,12 +4,24 @@ import { useNavigate } from "react-router";
 import logo from "../../assets/icons/logo.svg";
 import ethereum from "../../assets/icons/ethereum.svg";
 import "./style.css";
-import { useEffect } from "react";
+import useWalletConnect from "../../hooks/useWalletConnect";
 
 const Header = ({ isDark, handleChange }: any) => {
+  const {
+    getWallet,
+    connectwalletHandler,
+    defaultAccount,
+    errorMessage,
+    userBalance
+  } = useWalletConnect();
   const navigate = useNavigate();
   const changeRoute = (route: string) => {
     navigate(route);
+  };
+
+  const connectToWallet = () => {
+    getWallet();
+    connectwalletHandler();
   };
 
   return (
@@ -57,6 +69,7 @@ const Header = ({ isDark, handleChange }: any) => {
             fullWidth={false}
             variant="contained"
             className="connect-button"
+            onClick={connectToWallet}
           >
             Connect
           </Button>
