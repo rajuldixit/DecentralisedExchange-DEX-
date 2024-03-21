@@ -1,17 +1,57 @@
 import ToggleTheme from "../ToggleTheme";
-import { Button, Paper, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Paper,
+  SnackbarOrigin,
+  Stack,
+  Typography
+} from "@mui/material";
 import { useNavigate } from "react-router";
 import logo from "../../assets/icons/logo.svg";
 import ethereum from "../../assets/icons/ethereum.svg";
 import "./style.css";
-import { useEffect } from "react";
+import useWalletConnect from "../../hooks/useWalletConnect";
+import { useEffect, useState } from "react";
+import CustomToast from "../Shared/CustomToast";
+
+interface ToastState extends SnackbarOrigin {
+  open: boolean;
+}
 
 const Header = ({ isDark, handleChange }: any) => {
+  const {
+    getWallet,
+    connectwalletHandler,
+    defaultAccount,
+    errorMessage,
+    userBalance
+  } = useWalletConnect();
+  const [toast, setToast] = useState<ToastState>({
+    open: false,
+    vertical: "top",
+    horizontal: "center"
+  });
+  const { vertical, horizontal, open } = toast;
   const navigate = useNavigate();
+
+  const handleClick = (newState: SnackbarOrigin) => () => {
+    setToast({ ...newState, open: true });
+  };
+  const handleClose = () => {
+    setToast({ ...toast, open: false });
+  };
   const changeRoute = (route: string) => {
     navigate(route);
   };
 
+  const connectToWallet = () => {
+    getWallet();
+    connectwalletHandler();
+  };
+
+  useEffect(() => {
+    handleClick({ vertical: "bottom", horizontal: "center" });
+  }, [defaultAccount]);
   return (
     <>
       <Paper elevation={0} className="header-container">
@@ -57,14 +97,22 @@ const Header = ({ isDark, handleChange }: any) => {
             fullWidth={false}
             variant="contained"
             className="connect-button"
+            onClick={connectToWallet}
           >
-            Connect
+            {defaultAccount ? "Connected" : "Connect"}
           </Button>
         </Stack>
         <Stack>
           <ToggleTheme isChecked={isDark} handleChange={handleChange} />
         </Stack>
       </Paper>
+      <CustomToast
+        vertical={vertical}
+        horizontal={horizontal}
+        handleClose={handleClose}
+        open={open}
+        message={"Connection Established"}
+      />
     </>
   );
 };

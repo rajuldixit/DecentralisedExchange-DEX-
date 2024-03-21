@@ -23,6 +23,7 @@ const CustomDialog = (props: SimpleDialogProps) => {
       <List sx={{ padding: "8px 24px" }}>
         {tokenList.map((token) => (
           <ListItem
+            key={token.name}
             sx={{
               cursor: "pointer",
               "&:hover": {

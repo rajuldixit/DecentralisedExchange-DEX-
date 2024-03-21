@@ -36,7 +36,7 @@ const CustomTextField = ({
               }
             }}
             onChange={ontextFieldChange}
-            value={tokenAmount}
+            value={tokenAmount ? tokenAmount : 0}
           />
           <Button
             variant="outlined"

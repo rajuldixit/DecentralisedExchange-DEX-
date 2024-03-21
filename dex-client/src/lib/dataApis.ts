@@ -1,7 +1,6 @@
 import axios from "axios";
+import { BASE_URL, TOKEN_PRICES } from "../utils/endpoints";
 
-const BASE_URL = "http://localhost:9000";
-const TOKEN_PRICES = "/tokenPrices";
 const fetchPrices = async (
   tokenOneAddress: string,
   tokenTwoAddress: string
