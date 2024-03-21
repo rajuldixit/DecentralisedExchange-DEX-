@@ -15,6 +15,7 @@
 #### 1. axios 
 #### 2. MetaMask
 #### 3. ethers
+#### 4. moralis
 
 ## Steps to run
 #### 1. git clone https://github.com/rajuldixit/DecentralisedExchange-DEX-.git
